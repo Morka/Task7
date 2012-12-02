@@ -16,7 +16,7 @@ public class Car implements Runnable {
 		
 	}
 	
-	public void move() {//nach einer gewissen zeit bewegt sich das auto auf ein neues feld
+	public void move() {//nach einer gewissen zeit bewegt sich das auto auf ein neues feld und checkt auf hit -> if hit punkte++;
 		
 		
 		
