@@ -4,16 +4,18 @@
 
 public class Map {
 	
+	Field[][] fieldArray;
+	
 	//hat liste mit autos
-	public Map() {
+	public Map(int xSize, int ySize) {
 		
-		
+		fieldArray = new Field[xSize][ySize];
 		
 	}
 	
-	public boolean checkHit(int x, int y/*int direction?????*/) {//untersucht ob an den angegebenen korrdinaten bereits ein auto steht und ob es ein hit ist
+	public Field getField(int x, int y) {
 		
-		return false;
+		return this.fieldArray[x][y];
 		
 	}
 	
