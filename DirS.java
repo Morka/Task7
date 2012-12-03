@@ -1,3 +1,4 @@
+
 /**
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
@@ -25,6 +26,18 @@ public class DirS implements Direction {
 	public int[] moveRight() {
 		
 		return new int[]{-1, 0};
+		
+	}
+
+	public Direction turnLeft() {
+
+		return new DirE();
+		
+	}
+
+	public Direction turnRight() {
+
+		return new DirW();
 		
 	}
 	

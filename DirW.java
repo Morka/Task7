@@ -27,6 +27,17 @@ public class DirW implements Direction {
 		return new int[]{0, 1};
 		
 	}
+
+	public Direction turnLeft() {
+
+		return new DirS();
+	}
+
+	public Direction turnRight() {
+
+		return new DirN();
+		
+	}
 	
 	
 }

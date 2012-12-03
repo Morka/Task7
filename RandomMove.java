@@ -11,13 +11,13 @@ public class RandomMove implements MoveAlgorithm {
 	}
 
 	@Override
-	public int[] fastCarMove(int x, int y, int direction) {
+	public int[] fastCarMove(int x, int y, Direction direction) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int[] agileCarMove(int x, int y, int direction) {
+	public int[] agileCarMove(int x, int y, Direction direction) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -2,7 +2,7 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
 
-public abstract class DirE implements Direction {
+public class DirE implements Direction {
 
 	public DirE(){
 		
@@ -25,6 +25,18 @@ public abstract class DirE implements Direction {
 	public int[] moveRight() {
 		
 		return new int[]{0, -1};
+		
+	}
+
+	public Direction turnLeft() {
+
+		return new DirN();
+		
+	}
+
+	public Direction turnRight() {
+
+		return new DirS();
 		
 	}
 	
