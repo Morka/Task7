@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Map {
 	
 	private Field[][] fieldArray;
-	private ArrayList<Car> listOfCars;
+	private ArrayList<Car> listOfCars; //used to interrupt all threads when game ends in order to free resources
 	
 	//hat liste mit autos
 	public Map(int xSize, int ySize) {
