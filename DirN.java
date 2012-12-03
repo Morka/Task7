@@ -4,7 +4,7 @@
 
 public class DirN implements Direction {
 
-	public void DirE(){
+	public void DirN(){
 		
 		//Construct0r
 		
@@ -12,19 +12,19 @@ public class DirN implements Direction {
 
 	public int[] moveStraight() {
 		
-		return null;
+		return new int[]{0, 1};
 		
 	}
 	
 	public int[] moveLeft() {
 		
-		return null;
+		return new int[]{-1, 0};
 		
 	}
 	
 	public int[] moveRight() {
 		
-		return null;
+		return new int[]{1, 0};
 		
 	}
 	

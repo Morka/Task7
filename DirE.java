@@ -12,19 +12,19 @@ public abstract class DirE implements Direction {
 
 	public int[] moveStraight() {
 		
-		return null;
+		return new int[]{1, 0};
 		
 	}
 	
 	public int[] moveLeft() {
 		
-		return null;
+		return new int[]{0, 1};
 		
 	}
 	
 	public int[] moveRight() {
 		
-		return null;
+		return new int[]{0, -1};
 		
 	}
 	
