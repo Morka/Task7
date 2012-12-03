@@ -40,4 +40,23 @@ public class DirW implements Direction {
 	}
 	
 	
+	public boolean opposedTo(Direction direction){
+		return direction.opposedToDirW();
+	}
+	
+	public boolean opposedToDirE(){
+		return true;
+	}
+	
+	public boolean opposedToDirS(){
+		return false;
+	}
+	
+	public boolean opposedToDirN(){
+		return false;
+	}
+	
+	public boolean opposedToDirW(){
+		return false;
+	}
 }

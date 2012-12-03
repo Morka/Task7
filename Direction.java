@@ -10,5 +10,11 @@ public interface Direction {
 	public Direction turnLeft();
 	public Direction turnRight();
 	
+	public abstract boolean opposedTo(Direction direction);
 	
+	public abstract boolean opposedToDirE();
+	public abstract boolean opposedToDirW();
+	public abstract boolean opposedToDirS();
+	public abstract boolean opposedToDirN();
+
 }

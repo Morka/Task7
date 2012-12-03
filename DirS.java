@@ -41,5 +41,25 @@ public class DirS implements Direction {
 		
 	}
 	
+	public boolean opposedTo(Direction direction){
+		return direction.opposedToDirS();
+	}
 	
+	public boolean opposedToDirE(){
+		return false;
+	}
+	
+	public boolean opposedToDirS(){
+		return false;
+	}
+	
+	public boolean opposedToDirN(){
+		return true;
+	}
+	
+	public boolean opposedToDirW(){
+		return false;
+	}
 }
+	
+	

@@ -3,10 +3,11 @@
  */
 
 public class FastCar extends Car {
+	private Direction direction;
 	
 	public FastCar(Direction startDir){
 		
-		
+		this.direction = startDir;
 		
 	}
 	
@@ -16,5 +17,7 @@ public class FastCar extends Car {
 		
 	}
 	
-	
+	public Direction getDirection(){
+		return direction;
+	}
 }

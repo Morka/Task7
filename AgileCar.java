@@ -4,9 +4,11 @@
 
 public class AgileCar extends Car {
 	
+	private Direction direction;
+	
 	public AgileCar(Direction startDir){
 		
-		
+		this.direction = startDir;
 		
 	}
 	
@@ -16,5 +18,8 @@ public class AgileCar extends Car {
 		
 	}
 	
+	public Direction getDirection(){
+		return direction;
+	}
 	
 }

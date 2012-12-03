@@ -15,15 +15,17 @@ public abstract class Car implements Runnable {
 	}
 	
 	public abstract void move();
+	public abstract Direction getDirection();
 	
-	public synchronized void increasePoints() throws SuccessException{
+	public void increasePoints() throws SuccessException{
 		points++;
 		if(points > 9){
 			throw new SuccessException("The Winner is: ");
 		}
 	}
 	
-	public synchronized void decreasePoints(){
+	public void decreasePoints(){
 		points--;
 	}
+	
 }

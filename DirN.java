@@ -39,5 +39,24 @@ public class DirN implements Direction {
 		
 	}
 	
+	public boolean opposedTo(Direction direction){
+		return direction.opposedToDirN();
+	}
 	
+	public boolean opposedToDirE(){
+		return false;
+	}
+	
+	public boolean opposedToDirS(){
+		return true;
+	}
+	
+	public boolean opposedToDirN(){
+		return false;
+	}
+	
+	public boolean opposedToDirW(){
+		return false;
+	}
 }
+	
