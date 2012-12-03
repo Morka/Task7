@@ -4,7 +4,7 @@
 
 public class Map {
 	
-	Field[][] fieldArray;
+	private Field[][] fieldArray;
 	
 	//hat liste mit autos
 	public Map(int xSize, int ySize) {

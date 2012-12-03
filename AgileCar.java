@@ -4,9 +4,15 @@
 
 public class AgileCar extends Car {
 	
+	public AgileCar(Direction startDir){
+		
+		
+		
+	}
+	
 	public void move(){
 		
-		NO MAZDA IS NOT THE ONLY ONE DOING SOMETHING!
+		
 		
 	}
 	
