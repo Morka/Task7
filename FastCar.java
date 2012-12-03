@@ -4,6 +4,12 @@
 
 public class FastCar extends Car {
 	
+	public FastCar(Direction startDir){
+		
+		
+		
+	}
+	
 	public void move(){
 		
 		

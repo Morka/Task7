@@ -19,7 +19,7 @@ public abstract class Car implements Runnable {
 	public synchronized void increasePoints() throws SuccessException{
 		points++;
 		if(points > 9){
-			throw new SuccessException("WINNER");
+			throw new SuccessException("The Winner is: ");
 		}
 	}
 	
