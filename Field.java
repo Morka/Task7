@@ -2,22 +2,33 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
 
+import java.util.ArrayList;
+
 public class Field {
-	
-	int x, y;
-	Car currentCar;
-	
-	public Field(int xPos, int yPos) {
-		
-		this.x = xPos;
-		this.y = yPos;
-		
+
+	private ArrayList<Car> currentCars;
+
+	public Field() {		
+		currentCars = new ArrayList<Car>();
 	}
-	
-	public boolean checkHit(int x, int y/*int direction?????*/) {//untersucht ob an den angegebenen korrdinaten bereits ein auto steht und ob es ein hit ist
-		
-		return false;
-		
+
+	public void parkCar(Car newCar){
+		currentCars.add(newCar);
 	}
-	
+
+	public void unParkCar(Car deleteCar){
+		currentCars.remove(deleteCar);
+	}
+
+	public void checkHit(Car incommingCar) {//untersucht ob an den angegebenen korrdinaten bereits ein auto steht und ob es ein hit ist	
+		if(currentCars.size() > 0){
+			synchronized(this){
+				for(Car c : currentCars){
+					incommingCar.increasePoints();
+					c.decreasePoints();
+				}
+			}
+		}
+	}
+
 }

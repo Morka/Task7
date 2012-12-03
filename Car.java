@@ -5,6 +5,7 @@
 public abstract class Car implements Runnable {
 	
 	protected Direction currentDir;
+	private int points;
 
 	@Override
 	public void run() {
@@ -15,5 +16,11 @@ public abstract class Car implements Runnable {
 	
 	public abstract void move();
 	
+	public synchronized void increasePoints(){
+		points++;
+	}
 	
+	public synchronized void decreasePoints(){
+		points--;
+	}
 }
