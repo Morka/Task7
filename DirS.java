@@ -4,7 +4,7 @@
 
 public class DirS implements Direction {
 
-	public void DirS(){
+	public DirS(){
 		
 		//Construct0r
 		

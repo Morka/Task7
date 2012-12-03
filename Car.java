@@ -3,6 +3,8 @@
  */
 
 public abstract class Car implements Runnable {
+	
+	protected Direction currentDir;
 
 	@Override
 	public void run() {

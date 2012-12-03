@@ -4,7 +4,7 @@
 
 public class RandomMove implements MoveAlgorithm {
 
-	public void RandomMove(){
+	public RandomMove(){
 		
 		//Construct0r
 		

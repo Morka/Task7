@@ -4,7 +4,7 @@
 
 public abstract class DirE implements Direction {
 
-	public void DirE(){
+	public DirE(){
 		
 		//Construct0r
 		

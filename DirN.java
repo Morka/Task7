@@ -4,7 +4,7 @@
 
 public class DirN implements Direction {
 
-	public void DirN(){
+	public DirN(){
 		
 		//Construct0r
 		
