@@ -12,7 +12,7 @@ public class Test {
 		System.out.println("PEWPEW - ich bin eine testmaschine");
 		MoveAlgorithm circleAlgorithm = new CircleMove(10,10);
 		Map circleMoveMap = new Map(10, 10, circleAlgorithm);
-		circleMoveMap.startGame(5, 5);
+		circleMoveMap.startGame(10, 10);
 		
 	}
 }

@@ -39,7 +39,7 @@ public class FastCar extends Car {
 			try{
 				newField.checkHit(this);
 			}catch(GameEndException ex){
-				System.out.println(ex.toString());
+				System.out.println(ex.toString() + this.name);
 				map.endGame();
 				return;
 			}
