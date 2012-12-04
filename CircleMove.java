@@ -24,6 +24,8 @@ public class CircleMove implements MoveAlgorithm {
 		returnX = returnX + tmpInt[0];
 		returnY = returnY + tmpInt[1];
 		movingCar.setDirection(direction.turnRight());
+		System.out.println("x: " + returnX);
+		System.out.println("y: " + returnY);
 		if(-1 < returnX && returnX < width && -1 < returnY &&returnY < height){
 			
 			return new int[]{returnX, returnY};

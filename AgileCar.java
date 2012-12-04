@@ -20,17 +20,18 @@ public class AgileCar extends Car {
 
 	public void move(){
 		if(countMoves > 200){ //when countMoves > 200 about 10 seconds are over!
-			System.out.println("Game ends");
 			System.out.println("This car has " + getPoints() + " points");
 			map.endGame();
 			return;
 		}
 
 		int[] nextCoordinates = algorithm.agileCarMove(this.x, this.y, direction, this);
-		if(nextCoordinates[0] != -1){
+		if(nextCoordinates[0] != -1){ 
 			this.x = nextCoordinates[0];
 			this.y = nextCoordinates[1];
 
+			//System.out.println("x: " + this.x);
+			//System.out.println("y: " + this.y);
 			Field newField = Map.getField(x, y);
 
 			try{
@@ -50,7 +51,7 @@ public class AgileCar extends Car {
 				return;
 			}
 			newField.unParkCar(this);
-		}else{
+		}else{ //nexCoordinates[0] == -1 -> the next field would be illegal
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {

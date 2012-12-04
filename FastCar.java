@@ -20,13 +20,12 @@ public class FastCar extends Car {
 
 	public void move(){
 		if(countMoves > 340){ //when countMoves > 340 about 10 seconds are over!
-			System.out.println("Game ends");
 			System.out.println("This car has " + getPoints() + " points");
 			map.endGame();
 			return;
 		}
 		int[] nextCoordinates = algorithm.agileCarMove(this.x, this.y, direction, this);
-		if(nextCoordinates[0] < 0 || nextCoordinates[1] < 0){
+		if(nextCoordinates[0] != -1){
 			this.x = nextCoordinates[0];
 			this.y = nextCoordinates[1];
 
