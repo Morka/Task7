@@ -7,21 +7,22 @@ import java.util.Random;
 
 public class Map {
 	
-	private static Field[][] fieldArray;
+	private Field[][] fieldArray;
 	private ArrayList<Thread> listOfCars; //used to interrupt all threads when game ends in order to free resources
 	private final int xSize;
 	private final int ySize;
-	private final MoveAlgorithm algorithm;
+	private final MoveAlgorithm[] algorithm;
 	
 	//hat liste mit autos
-	public Map(int xSize, int ySize, MoveAlgorithm algorithm) {
+	public Map(int xSize, int ySize, MoveAlgorithm[] algorithm) {
 		this.xSize = xSize;
 		this.ySize = ySize;
 		fieldArray = new Field[xSize][ySize];
 		this.algorithm = algorithm;
+		
 	}
 	
-	public static Field getField(int x, int y) {
+	public Field getField(int x, int y) {
 		
 		return fieldArray[x][y];
 		
@@ -50,14 +51,14 @@ public class Map {
 		listOfCars = new ArrayList<Thread>();
 		for(int i = 0; i < numberOfAgileCars; i++){
 			//poor randomisation
-			Car tmp = new AgileCar(this, new DirE(), algorithm, rand.nextInt(10), rand.nextInt(10)); //they are starting at random BUT only numbers between 0 and 10
+			Car tmp = new AgileCar(this, new DirE(), algorithm[rand.nextInt(1)], rand.nextInt(10), rand.nextInt(10)); //they are starting at random BUT only numbers between 0 and 10
 			Thread t = new Thread(tmp);
 			listOfCars.add(t); //make a list of Threads, for easier interrupts
 			t.start();
 		}
 		
 		for(int i = 0; i < numberOfFastCars; i++){
-			Car tmp = new FastCar(this, new DirW(), algorithm, rand.nextInt(10), rand.nextInt(10)); //they are starting at random BUT only numbers between 0 and 10
+			Car tmp = new FastCar(this, new DirW(), algorithm[rand.nextInt(1)], rand.nextInt(10), rand.nextInt(10)); //they are starting at random BUT only numbers between 0 and 10
 			Thread t = new Thread(tmp);
 			listOfCars.add(t);
 			t.start();

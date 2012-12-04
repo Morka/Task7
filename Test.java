@@ -10,8 +10,8 @@ public class Test {
 	public static void main(String[] args) {
 		
 		System.out.println("PEWPEW - ich bin eine testmaschine");
-		MoveAlgorithm circleAlgorithm = new CircleMove(10,10);
-		Map circleMoveMap = new Map(10, 10, circleAlgorithm);
+		MoveAlgorithm[] algorithm1= new MoveAlgorithm[]{new CircleMove(10,10),  new RandomMove(10,10)};
+		Map circleMoveMap = new Map(10, 10, algorithm1);
 		circleMoveMap.startGame(10, 10);
 		
 	}

@@ -9,7 +9,7 @@ public class AgileCar extends Car {
 	private int x, y;
 	private int countMoves;
 	private final Map map;
-	private int name;
+	private final int name;
 
 	public AgileCar(Map map,Direction startDir, MoveAlgorithm algorithm, int x, int y){
 
@@ -38,7 +38,7 @@ public class AgileCar extends Car {
 
 			//System.out.println("x: " + this.x);
 			//System.out.println("y: " + this.y);
-			Field newField = Map.getField(x, y);
+			Field newField = map.getField(x, y);
 
 			try{
 				newField.checkHit(this);

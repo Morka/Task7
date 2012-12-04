@@ -8,7 +8,7 @@ public class FastCar extends Car {
 	private int x, y;
 	private int countMoves;
 	private final Map map;
-	private int name;
+	private final int name;
 
 
 	public FastCar(Map map, Direction startDir, MoveAlgorithm algorithm, int x, int y){
@@ -34,7 +34,7 @@ public class FastCar extends Car {
 			this.x = nextCoordinates[0];
 			this.y = nextCoordinates[1];
 
-			Field newField = Map.getField(x, y);
+			Field newField = map.getField(x, y);
 
 			try{
 				newField.checkHit(this);
