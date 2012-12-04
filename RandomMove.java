@@ -6,9 +6,12 @@ import java.util.Random;
 
 public class RandomMove implements MoveAlgorithm {
 
+	private int width, height;
+
 	public RandomMove(int width, int height){
 		
-		//Construct0r
+		this.width = width;
+		this.height = height;
 		
 	}
 
@@ -19,34 +22,56 @@ public class RandomMove implements MoveAlgorithm {
 		
 		int caseInt = numberGenerator.nextInt(3) + 1;
 		
+		int returnX, returnY;
 		int[] tmpInt;
 		
 		switch(caseInt) {
 		
 		case 1: //diagonal left
 			tmpInt = direction.moveStraight();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = x + tmpInt[0];
+			returnY = y + tmpInt[1];
 			tmpInt = direction.moveLeft();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = returnX + tmpInt[0];
+			returnY = returnY + tmpInt[1];
 			movingCar.setDirection(direction.turnLeft());
+			
+			if(returnX < width && returnY < height){
+
+				return new int[]{returnX, returnY};
+
+			}
+
 			return new int[]{x, y};
 			
 		case 2: //diagonal right
 			tmpInt = direction.moveStraight();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = x + tmpInt[0];
+			returnY = y + tmpInt[1];
 			tmpInt = direction.moveRight();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = returnX + tmpInt[0];
+			returnY = returnY + tmpInt[1];
 			movingCar.setDirection(direction.turnRight());
+			
+			if(returnX < width && returnY < height){
+
+				return new int[]{returnX, returnY};
+
+			}
+
 			return new int[]{x, y};
 			
 		default: //straight
 			tmpInt = direction.moveStraight();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = x + tmpInt[0];
+			returnY = y + tmpInt[1];
+			
+			if(returnX < width && returnY < height){
+
+				return new int[]{returnX, returnY};
+
+			}
+
 			return new int[]{x, y};
 		
 		
@@ -58,50 +83,86 @@ public class RandomMove implements MoveAlgorithm {
 
 		Random numberGenerator = new Random();
 
-		int caseInt = numberGenerator.nextInt(3) + 1;
+		int caseInt = numberGenerator.nextInt(4) + 1;
 
+		int returnX, returnY;
 		int[] tmpInt;
 
 		switch(caseInt) {
 
 		case 1: //diagonal left
 			tmpInt = direction.moveStraight();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = x + tmpInt[0];
+			returnY = y + tmpInt[1];
 			tmpInt = direction.moveLeft();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = returnX + tmpInt[0];
+			returnY = returnY + tmpInt[1];
 			movingCar.setDirection(direction.turnLeft());
+			
+			if(returnX < width && returnY < height){
+
+				return new int[]{returnX, returnY};
+
+			}
+
 			return new int[]{x, y};
 
 		case 2: //diagonal right
 			tmpInt = direction.moveStraight();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = x + tmpInt[0];
+			returnY = y + tmpInt[1];
 			tmpInt = direction.moveRight();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = returnX + tmpInt[0];
+			returnY = returnY + tmpInt[1];
 			movingCar.setDirection(direction.turnRight());
+			
+			if(returnX < width && returnY < height){
+
+				return new int[]{returnX, returnY};
+
+			}
+
 			return new int[]{x, y};
 			
 		case 3: //left
 			tmpInt = direction.moveLeft();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = x + tmpInt[0];
+			returnY = y + tmpInt[1];
 			movingCar.setDirection(direction.turnLeft());
+			
+			if(returnX < width && returnY < height){
+
+				return new int[]{returnX, returnY};
+
+			}
+
 			return new int[]{x, y};
 			
 		case 4: //right
 			tmpInt = direction.moveRight();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = x + tmpInt[0];
+			returnY = y + tmpInt[1];
 			movingCar.setDirection(direction.turnRight());
+			
+			if(returnX < width && returnY < height){
+
+				return new int[]{returnX, returnY};
+
+			}
+
 			return new int[]{x, y};
 
 		default: //straight
 			tmpInt = direction.moveStraight();
-			x = x + tmpInt[0];
-			y = y + tmpInt[1];
+			returnX = x + tmpInt[0];
+			returnY = y + tmpInt[1];
+			
+			if(returnX < width && returnY < height){
+
+				return new int[]{returnX, returnY};
+
+			}
+
 			return new int[]{x, y};
 
 
