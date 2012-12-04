@@ -15,6 +15,12 @@ public abstract class Car implements Runnable {
 	public abstract void move(); //is it a good idea to make it public?
 	public abstract Direction getDirection();
 	
+	public void setDirection(Direction dir) {
+		
+		this.currentDir = dir;
+		
+	}
+	
 	public void increasePoints() throws GameEndException{
 		points++;
 		if(points > 9){

@@ -11,7 +11,7 @@ public class CircleMove implements MoveAlgorithm {
 	}
 
 	@Override
-	public int[] fastCarMove(int x, int y, Direction direction) {
+	public int[] fastCarMove(int x, int y, Direction direction, Car movingCar) {
 
 		int[] tmpInt = direction.moveStraight();
 		x = x + tmpInt[0];
@@ -19,18 +19,18 @@ public class CircleMove implements MoveAlgorithm {
 		tmpInt = direction.moveRight();
 		x = x + tmpInt[0];
 		y = y + tmpInt[1];
-		direction = direction.turnRight();
+		movingCar.setDirection(direction.turnRight());
 		return new int[]{x, y};
 		
 	}
 
 	@Override
-	public int[] agileCarMove(int x, int y, Direction direction) {
+	public int[] agileCarMove(int x, int y, Direction direction, Car movingCar) {
 		
 		int[] tmpInt = direction.moveRight();
 		x = x + tmpInt[0];
 		y = y + tmpInt[1];
-		direction = direction.turnRight();
+		movingCar.setDirection(direction.turnRight());
 		return new int[]{x, y};
 		
 	}

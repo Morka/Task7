@@ -22,7 +22,7 @@ public class AgileCar extends Car {
 			return;
 		}
 
-		int[] nextCoordinates = algorithm.agileCarMove(this.x, this.y, direction);
+		int[] nextCoordinates = algorithm.agileCarMove(this.x, this.y, direction, this);
 		if(nextCoordinates[0] < 0 || nextCoordinates[1] < 0){
 			this.x = nextCoordinates[0];
 			this.y = nextCoordinates[1];

@@ -21,7 +21,7 @@ public class FastCar extends Car {
 		if(countMoves > 340){ //when countMoves > 340 about 10 seconds are over!
 			return;
 		}
-		int[] nextCoordinates = algorithm.agileCarMove(this.x, this.y, direction);
+		int[] nextCoordinates = algorithm.agileCarMove(this.x, this.y, direction, this);
 		if(nextCoordinates[0] < 0 || nextCoordinates[1] < 0){
 			this.x = nextCoordinates[0];
 			this.y = nextCoordinates[1];
