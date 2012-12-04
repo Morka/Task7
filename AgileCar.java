@@ -27,7 +27,7 @@ public class AgileCar extends Car {
 		}
 
 		int[] nextCoordinates = algorithm.agileCarMove(this.x, this.y, direction, this);
-		if(nextCoordinates[0] >= 0 && nextCoordinates[1] >= 0){
+		if(nextCoordinates[0] != -1){
 			this.x = nextCoordinates[0];
 			this.y = nextCoordinates[1];
 
