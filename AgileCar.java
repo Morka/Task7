@@ -9,18 +9,24 @@ public class AgileCar extends Car {
 	private int x, y;
 	private int countMoves;
 	private final Map map;
+	private int name;
 
 	public AgileCar(Map map,Direction startDir, MoveAlgorithm algorithm, int x, int y){
+
 		this.map = map;
 		this.direction = startDir;
 		this.algorithm = algorithm;
 		this.x = x;
 		this.y = y;
+		super.count++;
+		synchronized(this){
+			this.name = count;
+		}
 	}
 
 	public void move(){
 		if(countMoves > 200){ //when countMoves > 200 about 10 seconds are over!
-			System.out.println("This car has " + getPoints() + " points");
+			System.out.println("Car " + name + " has " + getPoints() + " points");
 			map.endGame();
 			return;
 		}
@@ -47,7 +53,7 @@ public class AgileCar extends Car {
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
-				System.out.println("This car has " + getPoints() + " points");
+				System.out.println("Car " + name + " has " + getPoints() + " points");
 				return;
 			}
 			newField.unParkCar(this);
@@ -55,15 +61,15 @@ public class AgileCar extends Car {
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
-				System.out.println("This car has " + getPoints() + " points");
+				System.out.println("Car " + name + " has " + getPoints() + " points");
 				return;
 			}			
-			
+
 			//unless algorithm is random, the car is stuck forever
 		}
 		countMoves++;
 		this.move();
-		
+
 	}
 
 	public Direction getDirection(){

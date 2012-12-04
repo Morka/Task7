@@ -8,6 +8,7 @@ public class FastCar extends Car {
 	private int x, y;
 	private int countMoves;
 	private final Map map;
+	private int name;
 
 
 	public FastCar(Map map, Direction startDir, MoveAlgorithm algorithm, int x, int y){
@@ -16,11 +17,15 @@ public class FastCar extends Car {
 		this.algorithm = algorithm;
 		this.x = x;
 		this.y = y;
+		super.count++;
+		synchronized(this){
+			this.name = count;
+		}
 	}
 
 	public void move(){
 		if(countMoves > 340){ //when countMoves > 340 about 10 seconds are over!
-			System.out.println("This car has " + getPoints() + " points");
+			System.out.println("Car " + name + " has " + getPoints() + " points");
 			map.endGame();
 			return;
 		}
@@ -45,17 +50,17 @@ public class FastCar extends Car {
 			try {
 				Thread.sleep(30);
 			} catch (InterruptedException e) {
-				System.out.println("This car has " + getPoints() + " points");
+				System.out.println("Car " + name + " has " + getPoints() + " points");
 				return;
 			}
 		}else{
 			try {
 				Thread.sleep(30);
 			} catch (InterruptedException e) {
-				System.out.println("This car has " + getPoints() + " points");
+				System.out.println("Car " + name + " has " + getPoints() + " points");
 				return;
 			}
-			
+
 			//unless algorithm is random, the car is stuck forever
 		}
 		countMoves++;

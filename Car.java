@@ -5,6 +5,7 @@
 public abstract class Car implements Runnable {
 	
 	protected Direction currentDir;
+	protected static int count;
 	
 	private int points;
 	@Override
