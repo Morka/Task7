@@ -36,13 +36,13 @@ public class RandomMove implements MoveAlgorithm {
 			returnY = returnY + tmpInt[1];
 			movingCar.setDirection(direction.turnLeft());
 			
-			if(returnX < width && returnY < height){
+			if(-1 < returnX && returnX < width && -1 < returnY &&  returnY < height){
 
 				return new int[]{returnX, returnY};
 
 			}
 
-			return new int[]{x, y};
+			return new int[]{-1, -1};
 			
 		case 2: //diagonal right
 			tmpInt = direction.moveStraight();
@@ -53,26 +53,26 @@ public class RandomMove implements MoveAlgorithm {
 			returnY = returnY + tmpInt[1];
 			movingCar.setDirection(direction.turnRight());
 			
-			if(returnX < width && returnY < height){
+			if(-1 < returnX && returnX < width && -1 < returnY &&  returnY < height){
 
 				return new int[]{returnX, returnY};
 
 			}
 
-			return new int[]{x, y};
+			return new int[]{-1, -1};
 			
 		default: //straight
 			tmpInt = direction.moveStraight();
 			returnX = x + tmpInt[0];
 			returnY = y + tmpInt[1];
 			
-			if(returnX < width && returnY < height){
+			if(-1 < returnX && returnX < width && -1 < returnY &&  returnY < height){
 
 				return new int[]{returnX, returnY};
 
 			}
 
-			return new int[]{x, y};
+			return new int[]{-1, -1};
 		
 		
 		}
@@ -99,13 +99,13 @@ public class RandomMove implements MoveAlgorithm {
 			returnY = returnY + tmpInt[1];
 			movingCar.setDirection(direction.turnLeft());
 			
-			if(returnX < width && returnY < height){
+			if(-1 < returnX && returnX < width && -1 < returnY &&  returnY < height){
 
 				return new int[]{returnX, returnY};
 
 			}
 
-			return new int[]{x, y};
+			return new int[]{-1, -1};
 
 		case 2: //diagonal right
 			tmpInt = direction.moveStraight();
@@ -116,13 +116,13 @@ public class RandomMove implements MoveAlgorithm {
 			returnY = returnY + tmpInt[1];
 			movingCar.setDirection(direction.turnRight());
 			
-			if(returnX < width && returnY < height){
+			if(-1 < returnX && returnX < width && -1 < returnY &&  returnY < height){
 
 				return new int[]{returnX, returnY};
 
 			}
 
-			return new int[]{x, y};
+			return new int[]{-1, -1};
 			
 		case 3: //left
 			tmpInt = direction.moveLeft();
@@ -130,13 +130,13 @@ public class RandomMove implements MoveAlgorithm {
 			returnY = y + tmpInt[1];
 			movingCar.setDirection(direction.turnLeft());
 			
-			if(returnX < width && returnY < height){
+			if(-1 < returnX && returnX < width && -1 < returnY &&  returnY < height){
 
 				return new int[]{returnX, returnY};
 
 			}
 
-			return new int[]{x, y};
+			return new int[]{-1, -1};
 			
 		case 4: //right
 			tmpInt = direction.moveRight();
@@ -144,26 +144,26 @@ public class RandomMove implements MoveAlgorithm {
 			returnY = y + tmpInt[1];
 			movingCar.setDirection(direction.turnRight());
 			
-			if(returnX < width && returnY < height){
+			if(-1 < returnX && returnX < width && -1 < returnY &&  returnY < height){
 
 				return new int[]{returnX, returnY};
 
 			}
 
-			return new int[]{x, y};
+			return new int[]{-1, -1};
 
 		default: //straight
 			tmpInt = direction.moveStraight();
 			returnX = x + tmpInt[0];
 			returnY = y + tmpInt[1];
 			
-			if(returnX < width && returnY < height){
+			if(-1 < returnX && returnX < width && -1 < returnY &&  returnY < height){
 
 				return new int[]{returnX, returnY};
 
 			}
 
-			return new int[]{x, y};
+			return new int[]{-1, -1};
 
 
 		}

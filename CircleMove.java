@@ -24,13 +24,13 @@ public class CircleMove implements MoveAlgorithm {
 		returnX = returnX + tmpInt[0];
 		returnY = returnY + tmpInt[1];
 		movingCar.setDirection(direction.turnRight());
-		if(returnX < width && returnY < height){
+		if(-1 < returnX && returnX < width && -1 < returnY &&returnY < height){
 			
 			return new int[]{returnX, returnY};
 			
 		}
 		
-		return new int[]{x, y};
+		return new int[]{-1, -1};
 		
 	}
 
@@ -43,13 +43,13 @@ public class CircleMove implements MoveAlgorithm {
 		returnY = y + tmpInt[1];
 		movingCar.setDirection(direction.turnRight());
 
-		if(returnX < width && returnY < height){
+		if(-1 < returnX && returnX < width && -1 < returnY &&  returnY < height){
 
 			return new int[]{returnX, returnY};
 
 		}
 
-		return new int[]{x, y};
+		return new int[]{-1, -1};
 
 	}
 
