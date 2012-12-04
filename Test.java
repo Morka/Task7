@@ -10,6 +10,8 @@ public class Test {
 	public static void main(String[] args) {
 		
 		System.out.println("PEWPEW - ich bin eine testmaschine");
+		Map circleMoveMap = new Map(10, 10);
+		circleMoveMap.startGame(2, 2);
 		
 	}
 }

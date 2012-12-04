@@ -1,11 +1,11 @@
 
-public class SuccessException extends Exception{
+public class GameEndException extends Exception{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L; //eclipse wants it :)
 
-	public SuccessException(String exception){
+	public GameEndException(String exception){
 		super(exception);
 	}
 

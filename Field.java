@@ -20,7 +20,7 @@ public class Field {
 		currentCars.remove(deleteCar);
 	}
 
-	public void checkHit(Car incommingCar) throws SuccessException{//untersucht ob an den angegebenen korrdinaten bereits ein auto steht und ob es ein hit ist	
+	public void checkHit(Car incommingCar) throws GameEndException{//untersucht ob an den angegebenen korrdinaten bereits ein auto steht und ob es ein hit ist	
 		if(currentCars.size() > 0){
 			synchronized(this){
 				for(Car c : currentCars){
@@ -28,9 +28,9 @@ public class Field {
 						try{
 							
 							incommingCar.increasePoints();
-						}catch(SuccessException ex){
+						}catch(GameEndException ex){
 							//is it a good style to "cascade" throw exceptions? because we'd need to throw it ones more in Car in order to get it through to Map...
-							throw new SuccessException(ex.toString() + incommingCar); //incommingCar lacks a toString() method! 
+							throw new GameEndException(ex.toString() + incommingCar); //incommingCar lacks a toString() method! 
 						}
 					}else{
 						c.decreasePoints();
