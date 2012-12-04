@@ -1,12 +1,12 @@
-import java.util.Random;
-
 /**
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
 
-public class RandomMove implements MoveAlgorithm {
+public class DrunkDriver implements MoveAlgorithm {
+	
+	boolean driveTop = true;
 
-	public RandomMove(int width, int height){
+	public DrunkDriver(){
 		
 		//Construct0r
 		
@@ -15,7 +15,19 @@ public class RandomMove implements MoveAlgorithm {
 	@Override
 	public int[] fastCarMove(int x, int y, Direction direction, Car movingCar) {
 		
-		Random numberGenerator = new Random();
+		if(driveTop) {
+			
+			
+			
+			return null;
+			
+		} else {
+			
+			return null;
+			
+		}
+		
+		/*Random numberGenerator = new Random();
 		
 		int caseInt = numberGenerator.nextInt(3) + 1;
 		
@@ -50,13 +62,13 @@ public class RandomMove implements MoveAlgorithm {
 			return new int[]{x, y};
 		
 		
-		}
+		}*/
 	}
 
 	@Override
 	public int[] agileCarMove(int x, int y, Direction direction, Car movingCar) {
 
-		Random numberGenerator = new Random();
+		/*Random numberGenerator = new Random();
 
 		int caseInt = numberGenerator.nextInt(3) + 1;
 
@@ -105,7 +117,9 @@ public class RandomMove implements MoveAlgorithm {
 			return new int[]{x, y};
 
 
-		}
+		}*/
+		
+		return null;
 	}
 
 }
