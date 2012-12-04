@@ -8,13 +8,11 @@ public abstract class Car implements Runnable {
 	private int points;
 
 	@Override
-	public void run() {
-		
+	public void run(){
 		this.move();
-		
 	}
 	
-	public abstract void move();
+	public abstract void move(); //is it a good idea to make it public?
 	public abstract Direction getDirection();
 	
 	public void increasePoints() throws SuccessException{
