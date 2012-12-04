@@ -49,17 +49,23 @@ public class Map {
 		listOfCars = new ArrayList<Thread>();
 		for(int i = 0; i < numberOfAgileCars; i++){
 			//poor randomisation
-			Car tmp = new AgileCar(new DirE(), new CircleMove(xSize, ySize), rand.nextInt(10), rand.nextInt(10)); //they are starting at random BUT only numbers between 0 and 10
+			Car tmp = new AgileCar(this, new DirE(), new CircleMove(xSize, ySize), rand.nextInt(10), rand.nextInt(10)); //they are starting at random BUT only numbers between 0 and 10
 			Thread t = new Thread(tmp);
 			listOfCars.add(t); //make a list of Threads, for easier interrupts
 			t.start();
 		}
 		
 		for(int i = 0; i < numberOfFastCars; i++){
-			Car tmp = new FastCar(new DirE(), new CircleMove(xSize, ySize), rand.nextInt(10), rand.nextInt(10)); //they are starting at random BUT only numbers between 0 and 10
+			Car tmp = new FastCar(this, new DirE(), new CircleMove(xSize, ySize), rand.nextInt(10), rand.nextInt(10)); //they are starting at random BUT only numbers between 0 and 10
 			Thread t = new Thread(tmp);
 			listOfCars.add(t);
 			t.start();
 		}
 	}	
+	
+	public void endGame(){
+		for(Thread t : listOfCars){
+			t.interrupt();
+		}
+	}
 }

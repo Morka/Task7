@@ -8,9 +8,10 @@ public class AgileCar extends Car {
 	private final MoveAlgorithm algorithm;
 	private int x, y;
 	private int countMoves;
+	private final Map map;
 
-	public AgileCar(Direction startDir, MoveAlgorithm algorithm, int x, int y){
-
+	public AgileCar(Map map,Direction startDir, MoveAlgorithm algorithm, int x, int y){
+		this.map = map;
 		this.direction = startDir;
 		this.algorithm = algorithm;
 		this.x = x;
@@ -19,6 +20,9 @@ public class AgileCar extends Car {
 
 	public void move(){
 		if(countMoves > 200){ //when countMoves > 200 about 10 seconds are over!
+			System.out.println("Game ends");
+			System.out.println("This car has " + getPoints() + " points");
+			map.endGame();
 			return;
 		}
 
@@ -27,13 +31,14 @@ public class AgileCar extends Car {
 			this.x = nextCoordinates[0];
 			this.y = nextCoordinates[1];
 
-			System.out.println("x: " + this.x + "\ny: " + this.y);
 			Field newField = Map.getField(x, y);
 
 			try{
 				newField.checkHit(this);
 			}catch(GameEndException ex){
-				//Winner found, do something...
+				System.out.println(ex.toString());
+				map.endGame();
+				return;
 			}
 
 			newField.parkCar(this);
@@ -41,14 +46,15 @@ public class AgileCar extends Car {
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("This car has " + getPoints() + " points");
+				return;
 			}
 			newField.unParkCar(this);
 		}else{
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
+				System.out.println("This car has " + getPoints() + " points");
 				return;
 			}			
 			

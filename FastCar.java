@@ -7,10 +7,11 @@ public class FastCar extends Car {
 	private final MoveAlgorithm algorithm;
 	private int x, y;
 	private int countMoves;
+	private final Map map;
 
 
-	public FastCar(Direction startDir, MoveAlgorithm algorithm, int x, int y){
-
+	public FastCar(Map map, Direction startDir, MoveAlgorithm algorithm, int x, int y){
+		this.map = map;
 		this.direction = startDir;
 		this.algorithm = algorithm;
 		this.x = x;
@@ -19,6 +20,9 @@ public class FastCar extends Car {
 
 	public void move(){
 		if(countMoves > 340){ //when countMoves > 340 about 10 seconds are over!
+			System.out.println("Game ends");
+			System.out.println("This car has " + getPoints() + " points");
+			map.endGame();
 			return;
 		}
 		int[] nextCoordinates = algorithm.agileCarMove(this.x, this.y, direction, this);
@@ -31,7 +35,9 @@ public class FastCar extends Car {
 			try{
 				newField.checkHit(this);
 			}catch(GameEndException ex){
-				//Winner found, do something...
+				System.out.println(ex.toString());
+				map.endGame();
+				return;
 			}
 
 			newField.parkCar(this);
@@ -40,13 +46,14 @@ public class FastCar extends Car {
 			try {
 				Thread.sleep(30);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("This car has " + getPoints() + " points");
+				return;
 			}
 		}else{
 			try {
 				Thread.sleep(30);
 			} catch (InterruptedException e) {
+				System.out.println("This car has " + getPoints() + " points");
 				return;
 			}
 			

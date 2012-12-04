@@ -5,8 +5,8 @@
 public abstract class Car implements Runnable {
 	
 	protected Direction currentDir;
+	
 	private int points;
-
 	@Override
 	public void run(){ 
 			this.move();
@@ -32,4 +32,7 @@ public abstract class Car implements Runnable {
 		points--;
 	}
 	
+	public int getPoints(){
+		return points;
+	}
 }
