@@ -39,7 +39,7 @@ public class Test {
 		map2.startGame(3, 3);
 		
 		try {
-			Thread.sleep(11000); //wait 11 seconds to end first Game
+			Thread.sleep(11000); //wait 11 seconds to end second Game
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
