@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 public class Field {
 
+	/**
+	 * stores current cars on the field
+	 * */
 	private ArrayList<Car> currentCars;
 
 	public Field() {		
@@ -29,8 +32,7 @@ public class Field {
 							incommingCar.increasePoints();
 							incommingCar.increasePoints();
 						}catch(GameEndException ex){
-							//is it a good style to "cascade" throw exceptions? because we'd need to throw it ones more in Car in order to get it through to Map...
-							throw new GameEndException(ex.toString() + incommingCar); //incommingCar lacks a toString() method! 
+							throw ex; 
 						}
 					}else{
 						incommingCar.increasePoints();

@@ -64,7 +64,7 @@ public abstract class Car implements Runnable {
 	public void increasePoints() throws GameEndException{
 		points++;
 		if(points > 9){
-			throw new GameEndException("The Winner is: ");
+			throw new GameEndException("The Winner is: " + name);
 		}
 	}
 	
@@ -118,7 +118,7 @@ public abstract class Car implements Runnable {
 			try{
 				newField.checkHit(this);
 			}catch(GameEndException ex){
-				throw new GameEndException(ex.toString() + this.name);
+				throw ex;
 			}
 
 			newField.parkCar(this);
@@ -182,6 +182,10 @@ public abstract class Car implements Runnable {
 	 * */
 	public int getPoints(){
 		return points;
+	}
+	
+	public String toString(){
+		return ""+  name;
 	}
 	
 }
