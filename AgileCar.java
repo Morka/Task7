@@ -3,8 +3,6 @@
  */
 
 public class AgileCar extends Car {
-	private int countMoves;
-
 	
 	public AgileCar(int name,Map map,Direction startDir, MoveAlgorithm algorithm, int x, int y, int waitingDuration){
 		super(name, map, startDir, algorithm, x, y, waitingDuration);
@@ -19,7 +17,6 @@ public class AgileCar extends Car {
 			super.getMap().endGame();
 			return;
 		}
-		countMoves++;
 		this.move();
 
 	}
