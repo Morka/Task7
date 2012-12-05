@@ -77,7 +77,7 @@ public class DirN implements Direction {
 	 */
 	public boolean opposedTo(Direction direction){
 		//Precondition: direction != null
-		
+		//Postcondition: if it is opposed to N = true, else false
 		return direction.opposedToDirN();
 	}
 	
