@@ -10,11 +10,6 @@ public class FastCar extends Car {
 	}
 
 	public void move(){
-		if(countMoves > 340){ //when countMoves > 340 about 10 seconds are over!
-			System.out.println("Car " + super.getName() + " has " + getPoints() + " points");
-			super.getMap().endGame();
-			return;
-		}
 		int[] nextCoordinates = super.getAlgorithm().fastCarMove(super.getX(), super.getY(), super.getDirection(), this);
 		try{
 			super.moveCar(nextCoordinates);
