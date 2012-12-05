@@ -12,17 +12,17 @@ public class Field {
 		currentCars = new ArrayList<Car>();
 	}
 
-	public void parkCar(Car newCar){
+	public synchronized void parkCar(Car newCar){
 		currentCars.add(newCar);
 	}
 
-	public void unParkCar(Car deleteCar){
+	public synchronized void unParkCar(Car deleteCar){
 		currentCars.remove(deleteCar);
 	}
 
 	public void checkHit(Car incommingCar) throws GameEndException{//untersucht ob an den angegebenen korrdinaten bereits ein auto steht und ob es ein hit ist	
+		synchronized(this){
 		if(currentCars.size() > 0){
-			synchronized(this){
 				for(Car c : currentCars){
 					if(incommingCar.getDirection().opposedTo(c.getDirection())){
 						try{

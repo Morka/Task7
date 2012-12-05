@@ -3,71 +3,29 @@
  */
 
 public class FastCar extends Car {
-	private Direction direction;
-	private final MoveAlgorithm algorithm;
-	private int x, y;
 	private int countMoves;
-	private final Map map;
-	private final int name;
 
-
-	public FastCar(Map map, Direction startDir, MoveAlgorithm algorithm, int x, int y){
-		this.map = map;
-		this.direction = startDir;
-		this.algorithm = algorithm;
-		this.x = x;
-		this.y = y;
-		super.count++;
-		synchronized(this){
-			this.name = count;
-		}
+	public FastCar(int name, Map map, Direction startDir, MoveAlgorithm algorithm, int x, int y, int waitingDuration){
+		super(name, map, startDir, algorithm, x, y, waitingDuration);
 	}
 
 	public void move(){
 		if(countMoves > 340){ //when countMoves > 340 about 10 seconds are over!
-			System.out.println("Car " + name + " has " + getPoints() + " points");
-			map.endGame();
+			System.out.println("Car " + super.getName() + " has " + getPoints() + " points");
+			super.getMap().endGame();
 			return;
 		}
-		int[] nextCoordinates = algorithm.agileCarMove(this.x, this.y, direction, this);
-		if(nextCoordinates[0] != -1){
-			this.x = nextCoordinates[0];
-			this.y = nextCoordinates[1];
-
-			Field newField = map.getField(x, y);
-
-			try{
-				newField.checkHit(this);
-			}catch(GameEndException ex){
-				System.out.println(ex.toString() + this.name);
-				map.endGame();
-				return;
-			}
-
-			newField.parkCar(this);
-
-
-			try {
-				Thread.sleep(30);
-			} catch (InterruptedException e) {
-				System.out.println("Car " + name + " has " + getPoints() + " points");
-				return;
-			}
-		}else{
-			try {
-				Thread.sleep(30);
-			} catch (InterruptedException e) {
-				System.out.println("Car " + name + " has " + getPoints() + " points");
-				return;
-			}
-
-			//unless algorithm is random, the car is stuck forever
+		int[] nextCoordinates = super.getAlgorithm().fastCarMove(super.getX(), super.getY(), super.getDirection(), this);
+		try{
+			super.moveCar(nextCoordinates);
+		}catch(GameEndException ex){
+			System.out.println(ex.toString());
+			super.getMap().endGame();
+			return;
 		}
 		countMoves++;
 		this.move();
 	}
 
-	public Direction getDirection(){
-		return direction;
-	}
+
 }
